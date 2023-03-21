@@ -8,12 +8,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 public class loginAction implements Action {
-    private String username;
-    private String password;
-    //数据库相关属性
-    private MysqlTool mysql=new MysqlTool();
-    private Connection con;
-    private Statement statement;
+    private String username;   //用户名
+    private String password;   //密码
 
     public String getUsername() {
         return username;
@@ -26,8 +22,7 @@ public class loginAction implements Action {
 
     @Override
     public String execute() throws Exception {
-        con=mysql.openDB();
-        Boolean login=1;
+        int login=1;//默认登录成功
         //将属性与Student数据库中的账号密码比对
         /*
 
@@ -49,12 +44,18 @@ public class loginAction implements Action {
 
 
 
-        if(login){
+        if(login==1){
         //返回SUCCESS，通过struts.xml进入登录成功页面（即进入学生主页面）
             return SUCCESS;
-        }else{
-            //登录失败（可以添加功能，比如账号错误还没密码错误，只需要区别一下返回值就行了）
+        }
+        if(login==2){
+            //登录失败，账号错误
             return ERROR;
+        
+        }
+        if(login==3){
+            //登录失败，密码错误
+            return INPUT;
         
         }
 
