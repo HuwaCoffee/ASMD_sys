@@ -22,7 +22,6 @@ public class loginAction implements Action {
 
     @Override
     public String execute() throws Exception {
-        con=mysql.openDB();
         int login=1;//默认登录成功
         //将属性与Student数据库中的账号密码比对
         /*
