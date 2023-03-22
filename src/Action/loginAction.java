@@ -1,11 +1,14 @@
 package Action;
 
+import DataBaseGet.DataBaseGet;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import exercise.MysqlTool;
+import user.Student;
 
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class loginAction implements Action {
     private String username;   //用户名
@@ -24,43 +27,19 @@ public class loginAction implements Action {
     public String execute() throws Exception {
         int login=1;//默认登录成功
         //将属性与Student数据库中的账号密码比对
-        /*
-
-          待完成
-           待完成
-           待完成
-           待完成
-
-             嗨嗨嗨
-
-           待完成
-           待完成
-           待完成
-           待完成
-            待完成
-            待完成
-            你好
-                */
-
-
-
-        if(login==1){
-        //返回SUCCESS，通过struts.xml进入登录成功页面（即进入学生主页面）
-            return SUCCESS;
+        DataBaseGet db=new DataBaseGet();
+        ArrayList<Student> students =db.GetUser();
+        for (int i = 0; i < students.size(); i++) {
+            if(students.get(i).getUserName().equals(username)&&students.get(i).getPassWord().equals(password)){
+                return SUCCESS;//返回SUCCESS，通过struts.xml进入登录成功页面（即进入学生主页面）
+            }
+            if(students.get(i).getUserName().equals(username)&&!students.get(i).getPassWord().equals(password)){
+                return INPUT;//登录失败，密码错误
+            }
+            if(!students.get(i).getUserName().equals(username)&&students.get(i).getPassWord().equals(password)){
+                return ERROR;//登录失败，账号错误
+            }
         }
-        if(login==2){
-            //登录失败，账号错误
-            return ERROR;
-        
-        }
-        if(login==3){
-            //登录失败，密码错误
-            return INPUT;
-        
-        }
-        
-        return SUCCESS;
-
-        
+        return NONE;//账号密码都错误
     }
 }
