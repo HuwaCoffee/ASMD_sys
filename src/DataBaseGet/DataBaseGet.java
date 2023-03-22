@@ -2,9 +2,8 @@ package DataBaseGet;
 
 import exercise.BinaryOperation;
 import exercise.MysqlTool;
+import user.School;
 import user.Student;
-import user.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +14,43 @@ public class DataBaseGet {
     private MysqlTool mysql=new MysqlTool();
     private Connection con;
     private PreparedStatement ps;
+
+    //从school表中获取学校数组
+    public ArrayList<School> GetSchools(){
+        ArrayList<School> schools=new ArrayList<>();
+
+            /*待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成*/
+
+
+        return schools;
+    }
+
+
+    //从school表中获取学校数组
+    public ArrayList<Class> GetClasses(){
+        ArrayList<Class> Classes=new ArrayList<>();
+
+            /*待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成*/
+
+
+        return Classes;
+    }
 
     //获取普通练习的题目，默认10道题，返回题目类型数组。
     //优化内容：【如果想要定向出题（如只有加，只有减，或者只有乘除），可以限定随机数的范围】，【可以修改方法让用户输入题目数】
@@ -37,6 +73,28 @@ public class DataBaseGet {
 
 
         return questions;
+    }
+
+    //获取错题，最多10道题，返回题目类型数组。
+    public ArrayList<BinaryOperation> GetWrongQuestions(){
+        ArrayList<BinaryOperation> wrongQuestions=new ArrayList<>();
+        //读取数据库，获取错题集的前10道题，（如果不够10道就取完），并存入wrongQuestions
+
+
+        /*待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成
+                待完成*/
+
+
+
+
+        return wrongQuestions;
     }
 
     //返回所有学生信息数组
