@@ -6,13 +6,19 @@
 
 <struts>
     <package name="default" namespace="/default" extends="struts-default">
-        <action name="login" class="login.loginAction" method="execute">
+        <action name="login" class="Action.loginAction" method="execute">
 
         </action>
         <action name="Exercise" class="Action.GetQuestionAction" method="execute">
 
         </action>
+        <action name="WrongQuestionExercise" class="Action.GetQuestionAction" method="execute01">
+
+        </action>
         <action name="Check" class="Action.CheckingAction" method="execute">
+
+        </action>
+        <action name="Register" class="Action.RegisterAction" method="execute">
 
         </action>
     </package>
