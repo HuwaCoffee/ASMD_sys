@@ -58,6 +58,8 @@ public class loginAction implements Action {
             return INPUT;
         
         }
+        
+        return SUCCESS;
 
         
     }
